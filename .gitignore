@@ -1,0 +1,78 @@
+# ============================================
+# Arma 3 Dedicated Server - .gitignore
+# Commit: scripts, config, .env.example
+# Ignore: binaries, mods, logs, secrets
+# ============================================
+
+# Machine-specific secrets and local overrides
+.env
+
+# Server binary and all DLCs/game files installed by SteamCMD
+arma3server_x64.exe
+arma3server.exe
+arma3_x64.exe
+steam_api64.dll
+*.dll
+*.so
+*.dylib
+
+# Boilerplate files installed alongside the server binary
+dll/
+steam_appid.txt
+arma3server_readme.txt
+openssl_license.txt
+
+# Core game data folders (installed by SteamCMD app_update 233780)
+addons/
+dta/
+keys/
+hc/
+mark/
+jets/
+orange/
+argo/
+tacops/
+enoch/
+gm/
+vn/
+csla/
+spe/
+warlords/
+expansion/
+curator/
+kart/
+air/
+
+# Mod folders (populated by workshop copy on startup)
+@*/
+_@*/
+
+# Server profile / runtime data (logs, saves, BattlEye)
+config/
+profiles/
+battleye/
+BattlEye/
+
+# Arma 3 log and report files
+*.log
+*.rpt
+*.bidmp
+*.mdmp
+*.tga
+
+# Mission files — uncomment if you DON'T want to track custom missions in git
+# mpmissions/
+
+# SteamCMD cache if ever placed here
+steamapps/
+
+# Claude Code local settings (machine-specific permissions)
+.claude/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editor
+*.bak
+*.tmp
