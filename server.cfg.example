@@ -1,0 +1,53 @@
+// Arma 3 Dedicated Server Configuration
+// Reference: https://community.bistudio.com/wiki/server.cfg
+//
+// Copy this file to server.cfg and fill in your values.
+// server.cfg is gitignored — never commit real passwords or Steam UIDs.
+
+hostname = "My Antistasi Server";
+password = "CHANGE_ME";
+passwordAdmin = "CHANGE_ME_ADMIN";
+
+// Auto-grant admin to these Steam UIDs (no #login needed)
+// Find your Steam64 ID at https://steamid.io
+admins[] = {"YOUR_STEAM64_ID"};
+
+maxPlayers = 20;
+
+// Keep mission running when server is empty (required for Antistasi persistence)
+persistent = 1;
+
+// Mission voting
+voteMissionPlayers = 1;
+voteThreshold = 0.33;
+
+// Voice
+disableVoN = 0;
+vonCodecQuality = 3;
+
+// Security — set verifySignatures = 2 and BattlEye = 1 on public server
+BattlEye = 0;
+verifySignatures = 0;
+allowedFilePatching = 1;
+
+// Logging
+logFile = "config\server_console.log";
+timeStampFormat = "short";
+
+// Antistasi requires file writing for its save system
+// allowedVoteCmds[] = {};
+
+// Uncomment after first run — check @AntistasiUltimate\mpmissions\ for the actual .pbo name
+// class Missions
+// {
+//     class Mission
+//     {
+//         template = "Antistasi_Altis.Altis";
+//         difficulty = "Regular";
+//         class Params
+//         {
+//             // Auto-load last save N seconds after first player connects (0 = disabled)
+//             autoLoadLastGame = 30;
+//         };
+//     };
+// };

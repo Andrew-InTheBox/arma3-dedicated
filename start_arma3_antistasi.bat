@@ -68,9 +68,11 @@ start "Arma 3 Server" /min /wait arma3server_x64.exe ^
   -port=%serverPort% ^
   "-mod=%mods%" ^
   -profiles=%serverProfile% ^
+  -name=antistasi ^
   -cpuCount=%serverCPU% ^
   -world=empty ^
   -filePatching ^
+  -noSteam ^
   -adminlog -netlog
 
 echo (%time%) Server process exited. Restarting in 3 seconds...

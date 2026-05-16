@@ -6,6 +6,7 @@
 
 # Machine-specific secrets and local overrides
 .env
+server.cfg
 
 # Server binary and all DLCs/game files installed by SteamCMD
 arma3server_x64.exe
