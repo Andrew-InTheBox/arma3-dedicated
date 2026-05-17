@@ -31,26 +31,35 @@ Downloads the Arma 3 dedicated server (SteamCMD AppID `233780`) into this folder
 
 ### 3. Create mod stubs
 
-Create a folder for each mod with a `meta.cpp` inside so the startup script knows which workshop item to sync:
+Each mod needs a folder in the server root containing a `meta.cpp` file. The startup script scans for `@*` and `_@*` folders, reads the `publishedid` from `meta.cpp`, and uses that to sync the mod files from the workshop cache (or download them via SteamCMD).
 
-```
-@CBA_A3\meta.cpp
-@AntistasiUltimate\meta.cpp
-```
+Create the following folders and files:
 
-Each `meta.cpp` should contain:
+| Folder | Workshop ID | Mod |
+|---|---|---|
+| `@CBA_A3` | 450814997 | Community Base Addons — required by most mods |
+| `@AntistasiUltimate` | 3020755032 | Antistasi Ultimate mission framework |
+| `@ACE` | 463939057 | ACE3 — advanced gameplay overhaul |
+| `@ACE_NoMedical` | 3053169823 | ACE No Medical — disables ACE medical to preserve Antistasi AI behaviour |
+| `@JSRS_SOUNDMOD` | 3407948300 | JSRS SOUNDMOD 2025 |
+| `@LAMBS_Suppression` | 1808238502 | LAMBS Suppression — AI suppression |
+| `@BetterInventory` | 2791403093 | Better Inventory |
+| `@LootingEnhanced` | 2479270597 | Looting Enhanced — requires ACE3 |
+| `@EnhancedMovement` | 333310405 | Enhanced Movement — required dependency of Enhanced Movement Rework |
+| `@EnhancedMovementRework` | 2034363662 | Enhanced Movement Rework |
+
+Each `meta.cpp` follows this format (substitute the correct name and ID):
 
 ```cpp
-// @CBA_A3
-name = "CBA_A3";
+protocol = 1;
 publishedid = 450814997;
+name = "CBA_A3";
+timestamp = 5250792552234579675;
 ```
 
-```cpp
-// @AntistasiUltimate
-name = "Antistasi Ultimate";
-publishedid = 3020755032;
-```
+The `timestamp` field is optional — the script only reads `publishedid`. You can omit it or copy it from the corresponding file in your Steam workshop cache at `%WORKSHOP_PATH%\<publishedid>\meta.cpp`.
+
+> **Steam subscriptions required:** Before first run, subscribe to all mods listed above on the Steam Workshop (or configure SteamCMD credentials — see [Mod updates](#mod-updates)). The startup script will not create mod content itself; it only syncs files that Steam has already downloaded.
 
 ### 4. Edit server.cfg
 

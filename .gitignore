@@ -44,9 +44,11 @@ curator/
 kart/
 air/
 
-# Mod folders (populated by workshop copy on startup)
-@*/
-_@*/
+# Mod folder contents (populated by workshop copy on startup) — ignore data, keep meta.cpp
+@*/**
+!@*/meta.cpp
+_@*/**
+!_@*/meta.cpp
 
 # Server profile / runtime data (logs, saves, BattlEye)
 config/
