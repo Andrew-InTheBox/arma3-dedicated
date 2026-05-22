@@ -43,17 +43,8 @@ if defined PASSWORD set "STEAM_PASS=%PASSWORD%"
 
 title %serverName% batch
 
-::Build mods list from folders starting with "@" or "_@"
-setlocal enabledelayedexpansion
-set "mods="
-for /d %%D in (@* _@*) do (
-    if not defined mods (
-        set "mods=%%~D"
-    ) else (
-        set "mods=!mods!;%%~D"
-    )
-)
-endlocal & set "mods=%mods%"
+::Mod load order — edit this list to change order or add/remove mods
+set "mods=@CBA_A3;@ACE;@ACE_NoMedical;@AntistasiUltimate;@JSRS_SOUNDMOD;@LAMBS_Suppression;@EnhancedMovement;@EnhancedMovementRework;@BetterInventory;@LootingEnhanced"
 
 echo Server mod list: %mods%
 
